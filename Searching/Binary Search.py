@@ -21,3 +21,23 @@ def binary_search(arr, key):
 arr = [3, 4, 5, 6, 7, 8, 9]
 print(binary_search(arr, 8))
 print(binary_search(arr, 2))
+
+2. Recursive Method
+
+def binary_search(arr, left, right, key):
+    mid = (left + right) // 2
+    if left <= right:
+        if arr[mid] == key:
+            return f"Element {key} is present at index {mid}"
+        elif arr[mid] < key:
+            return binary_search(arr, mid+1, right, key)
+        else:
+            return binary_search(arr, left, mid-1, key)
+    else:
+        return f"Element {key} is not present in array"
+
+arr = [3, 4, 5, 6, 7, 8, 9]
+left = 0
+right = len(arr) - 1
+print(binary_search(arr, left, right, 8))
+print(binary_search(arr, left, right, 2))
